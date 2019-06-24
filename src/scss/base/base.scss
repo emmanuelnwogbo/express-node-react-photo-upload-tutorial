@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 69%;
+}
+
+body {
+  //overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.app {
+  margin: 0 auto;
+  background: red;
+  padding: 2rem;
+}
