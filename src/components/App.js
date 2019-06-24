@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import PhotoDisplay from './PhotoDisplay';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {}
-  }
-
-
-
-  render() {
-    return (
-      <div className={`app`}>
-        <PhotoDisplay />
-      </div>
-    )
-  }
+const App = () => {
+  return (
+    <div>
+      <PhotoDisplay />
+    </div>
+  )  
 }
 
 export default App;
