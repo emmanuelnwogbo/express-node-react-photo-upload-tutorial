@@ -14,15 +14,6 @@ class PhotoDisplay extends Component {
   super(props);
   this.state = {
     url: 'http://localhost:3000/upload',
-    config: {
-      headers: { 
-        "X-Requested-With": "XMLHttpRequest" 
-      },
-      onUploadProgress: event => {
-        let progress = Math.round((event.loaded * 100.0) / event.total);
-        console.log(progress)
-      }
-    },
     images: [],
     previews: [],
     removed: []
@@ -53,12 +44,27 @@ class PhotoDisplay extends Component {
   })
  }
 
+ initConfig = (ImageId) => {
+  const config = {
+    headers: { 
+      "X-Requested-With": "XMLHttpRequest" 
+    },
+    onUploadProgress: event => {
+      let progress = Math.round((event.loaded * 100.0) / event.total);
+      console.log(progress);
+      document.getElementById(ImageId).lastElementChild.style.height = `${100 - progress}%`
+    }
+  }
+
+  return config
+ }
+
  handleUpload = (image, ImageId) => {
-  const { url, config } = this.state;
+  const { url } = this.state;
   const upload = new FormData();
   upload.append('upload', image);
   upload.append('imageId', ImageId)
-  axios.post(url, upload, config).then(res => {
+  axios.post(url, upload, this.initConfig(ImageId)).then(res => {
     if (res) {
       console.log(res)
     }
