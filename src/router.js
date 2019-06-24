@@ -9,13 +9,17 @@ const upload = multer({
       return cb(new Error('Please upload a valid photo'))
     }
 
-    console.log(file)
     cb(undefined, true)
   }
 })
 
 router.post('/upload', upload.single('upload'), (req, res) => {
   console.log(req.file)
+  console.log(req.body)
+  res.json({
+    image: req.file,
+    message: 'successfully uploaded'
+  })
 })
 
-export default router;    
+export default router; 

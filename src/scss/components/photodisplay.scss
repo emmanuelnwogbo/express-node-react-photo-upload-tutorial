@@ -1,0 +1,70 @@
+.photodisplay {
+  position: relative;
+  display: block;
+  margin: 3rem auto;
+  width: 50%;
+  padding: 1rem;
+  background: #F0F3F4;
+
+  &__h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;    
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 18rem));
+    grid-gap: 1rem;
+    overflow: hidden;
+    border-radius: .3rem;
+
+    & figure {
+      height: 18rem;
+      position: relative;
+
+      & div {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        text-transform: uppercase;
+        z-index: 4;
+        cursor: pointer;
+        background: #B53471;
+        border-radius: 3rem;
+        padding: .2rem .6rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      & span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: blue;
+        opacity: .2;
+        z-index: 3;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;  
+    }
+  }
+}

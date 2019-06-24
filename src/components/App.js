@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Input from './Input';
+import PhotoDisplay from './PhotoDisplay';
 
 class App extends Component {
   constructor() {
@@ -8,12 +8,12 @@ class App extends Component {
     this.state = {}
   }
 
-  
+
 
   render() {
     return (
       <div className={`app`}>
-        <Input />
+        <PhotoDisplay />
       </div>
     )
   }
